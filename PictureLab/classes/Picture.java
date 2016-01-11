@@ -98,9 +98,8 @@ public class Picture extends SimplePicture
     }
   }
   
-  /** Method that mirrors the picture around a 
-    * vertical mirror in the center of the picture
-    * from left to right */
+  /** Methods that mirrors the picture
+      using various methods*/
   public void mirrorVertical()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -165,6 +164,25 @@ public class Picture extends SimplePicture
           }
         } 
     }
+    public void mirrorDiagonal()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        Pixel pixel1 = null;
+        Pixel pixel2 = null;
+        for (int row = 0; row < pixels.length; row++)
+        {
+          for (int col = 0; col < pixels[row].length; col++)
+          {
+            if (col < pixels.length)
+            {
+                pixel1 = pixels[row][col];
+                pixel2 = pixels[col][row];
+                pixel1.setColor(pixel2.getColor());
+            }
+          }
+        } 
+    }
+    
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -185,10 +203,16 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+        count++;
       }
     }
+    System.out.println(count);
   }
-  
+  public void MirrorArms()
+  {
+      //snowman's right arm goes from col 239 to 293 and row 174 to 195
+      //snowman's left arm goes from col 105 to 170 and row 159 to 190
+    }
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
