@@ -16,6 +16,19 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
+  public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.keepOnlyBlue();
+    beach.explore();
+  }
+  public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
+  }
   
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
@@ -62,7 +75,14 @@ public class PictureTester
   public static void testMirrorArms()
   {
       Picture snowman = new Picture("snowman.jpg");
+      snowman.mirrorArms();
       snowman.explore();
+    }
+    public static void testMirrorGull()
+    {
+        Picture gull = new Picture("seagull.jpg");
+        gull.mirrorGull();
+        gull.explore();
     }
   
   /** Method to test the collage method */
@@ -92,7 +112,7 @@ public class PictureTester
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
+    testNegate();
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
@@ -101,7 +121,7 @@ public class PictureTester
     //testMirrorHorizontalBotToTop();
     //testMirrorDiagonal(); this only mirrors a square
     //testMirrorTemple();
-    testMirrorArms();
+    // testMirrorArms();
     // testMirrorGull();
     // testMirrorDiagonal();
     // testCollage();
