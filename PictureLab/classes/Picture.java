@@ -122,6 +122,46 @@ public class Picture extends SimplePicture
       }
     }
   }
+  public void grayscale()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        int red = pixelObj.getRed();
+        int green = pixelObj.getGreen();
+        int blue = pixelObj.getBlue();
+        int average = (red + green + blue) / 3;
+        pixelObj.setRed(average);
+        pixelObj.setGreen(average);
+        pixelObj.setBlue(average);
+      }
+    }
+  }
+  public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        int green = pixelObj.getGreen();
+        int blue = pixelObj.getBlue();
+        if (green > blue)
+        {
+            int difference = Math.abs(blue - green);
+            pixelObj.setGreen(green - difference);
+            pixelObj.setBlue(blue - difference);
+        }
+        else if (blue > green)
+        {
+            int difference = blue - green;
+            pixelObj.setBlue(blue + difference);
+        }
+      }
+    }
+  }
   
   /** Methods that mirrors the picture
       using various methods*/
