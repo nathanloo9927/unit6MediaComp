@@ -315,6 +315,11 @@ public class Picture extends SimplePicture
       }
     }
     }
+    public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol,
+    int startDestRow, int startDestCol )
+    {
+        
+    }
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
