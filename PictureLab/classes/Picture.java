@@ -318,7 +318,17 @@ public class Picture extends SimplePicture
     public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol,
     int startDestRow, int startDestCol )
     {
-        
+        Pixel[][] pixels = sourcePicture.getPixels2D();
+        Pixel[][] copying = new Pixel[endSourceRow - startSourceRow + 1][endSourceCol - startSourceCol + 1];
+        Pixel[][] pixels2 = this.getPixels2D();
+        Pixel pixel = null;
+        for (int row = startSourceRow; row <= endSourceRow; row++)
+        {
+            for (int col = startSourceCol; col <= endSourceCol; col++)
+            {
+                
+            }
+        }
     }
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
