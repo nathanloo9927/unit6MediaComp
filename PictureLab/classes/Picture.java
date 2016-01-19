@@ -321,13 +321,37 @@ public class Picture extends SimplePicture
         Pixel[][] pixels = sourcePicture.getPixels2D();
         Pixel[][] copying = new Pixel[endSourceRow - startSourceRow + 1][endSourceCol - startSourceCol + 1];
         Pixel[][] pixels2 = this.getPixels2D();
-        Pixel pixel = null;
+        Pixel pixela = null;
+        Pixel pixelb = null;
+        Pixel pixelc = null;
+        int rowz = 0;
+        int r = 0;
         for (int row = startSourceRow; row <= endSourceRow; row++)
         {
+            int colz = 0;
             for (int col = startSourceCol; col <= endSourceCol; col++)
             {
-                
+                pixela = pixels[row][col];
+                copying[rowz][colz] = pixela;
+                copying[rowz][colz].setColor(pixela.getColor());
+                colz++;
             }
+            rowz++;
+        }
+        for (int row = startDestRow; row < copying.length + startDestRow; row++)
+        {
+            int c = 0;
+            for (int col = startDestCol; col < copying[0].length + startDestCol; col++)
+            {
+                if ((row <= pixels2.length && row >= 0) && (col <= pixels2[0].length && col >= 0))
+                {
+                    pixelb = copying[r][c];
+                    pixelc = pixels2[row][col];
+                    pixelc.setColor(pixelb.getColor());
+                }
+                c++;
+            }
+            r++;
         }
     }
   /** copy from the passed fromPic to the

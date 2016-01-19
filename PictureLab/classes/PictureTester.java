@@ -99,6 +99,14 @@ public class PictureTester
         gull.mirrorGull();
         gull.explore();
     }
+    public static void testCrop()
+    {
+        Picture beach = new Picture("beach.jpg");
+        Picture gull = new Picture("seagull.jpg");
+        beach.explore();
+        beach.cropAndCopy(gull, 232, 323, 235, 345, 0, -20);
+        beach.explore();
+    }
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -139,6 +147,7 @@ public class PictureTester
     // testMirrorArms();
     // testMirrorGull();
     // testMirrorDiagonal();
+    testCrop();
     // testCollage();
     // testCopy();
     // testEdgeDetection();
