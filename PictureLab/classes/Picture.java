@@ -388,20 +388,30 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
-    this.copy(flower1,200,0);
-    Picture flowerNoBlue = new Picture(flower2);
-    flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
-    this.mirrorVertical();
-    this.write("collage.jpg");
+   /*    
+       Picture flower1 = new Picture("flower1.jpg");
+       Picture flower2 = new Picture("flower2.jpg");
+       this.copy(flower1,0,0);
+       this.copy(flower2,100,0);
+       this.copy(flower1,200,0);
+       Picture flowerNoBlue = new Picture(flower2);
+       flowerNoBlue.zeroBlue();
+       this.copy(flowerNoBlue,300,0);
+       this.copy(flower1,400,0);
+       this.copy(flower2,500,0);
+       this.mirrorVertical();
+       this.write("collage.jpg");
+   */
+   Picture beach = new Picture("beach.jpg");
+   Picture negativeBeach = new Picture(beach);
+   Picture gull = new Picture("seagull.jpg");
+   negativeBeach.negate();
+   this.copy(beach,0,0);
+   this.copy(negativeBeach,0,640);
+   this.copy(beach,480,0);
+   this.cropAndCopy(gull, 232, 323, 235, 345, 750, 500);
+   
   }
-  
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
