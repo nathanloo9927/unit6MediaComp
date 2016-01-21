@@ -453,7 +453,7 @@ public class Picture extends SimplePicture
    this.copy(beach,480,0);
    this.cropAndCopy(gull, 232, 323, 235, 345, 750, 500);
    this.copy(sepiaBeach, 480, 640);
-   this.write("C:\\Users\\gschmit\\Desktop\\GitHub\\unit6MediaComp\\images\\MyCollage.jpg");
+   this.write("C:\\Users\\ngloo.HS\\Desktop\\GitHub\\unit6MediaComp\\PictureLab\\images\\MyCollage.jpg");
   }
   
   /** Method to show large changes in color 
