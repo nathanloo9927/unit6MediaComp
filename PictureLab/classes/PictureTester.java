@@ -9,6 +9,11 @@
 public class PictureTester
 {
   /** Method to test zeroBlue */
+  public static void viewChair()
+  {
+      Picture chair = new Picture("lawnchair.jpg");
+      chair.explore();
+    }
   public static void testZeroBlue()
   {
     Picture beach = new Picture("beach.jpg");
@@ -131,6 +136,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+    // viewChair();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
@@ -147,8 +153,8 @@ public class PictureTester
     // testMirrorArms();
     // testMirrorGull();
     // testMirrorDiagonal();
-    testCrop();
-    // testCollage();
+    // testCrop();
+    testCollage();
     // testCopy();
     // testEdgeDetection();
     // testEdgeDetection2();

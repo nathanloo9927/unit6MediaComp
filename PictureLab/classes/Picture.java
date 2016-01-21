@@ -122,6 +122,45 @@ public class Picture extends SimplePicture
       }
     }
   }
+  public void sepia()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        int red = pixelObj.getRed();
+        int green = pixelObj.getGreen();
+        int blue = pixelObj.getBlue();
+        int average = (red + green + blue) / 3;
+        pixelObj.setRed(average);
+        pixelObj.setGreen(average);
+        pixelObj.setBlue(average);
+        int newRed = pixelObj.getRed();
+        int newGreen = pixelObj.getGreen();
+        int newBlue = pixelObj.getBlue();
+        if (newRed < 60)
+          {
+              newRed *= .9;
+              newGreen *= .9;
+              newBlue *= .9;
+              pixelObj.setRed(newRed);
+              pixelObj.setGreen(newGreen);
+              pixelObj.setBlue(newBlue);
+            }
+            else if (newRed < 190)
+            {
+                newBlue *= .8;
+                pixelObj.setBlue(newBlue);
+            }
+            else
+            {
+                newBlue *= .9;
+                pixelObj.setBlue(newBlue);
+            }
+      }
+    }
+  }
   public void grayscale()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -404,13 +443,17 @@ public class Picture extends SimplePicture
    */
    Picture beach = new Picture("beach.jpg");
    Picture negativeBeach = new Picture(beach);
+   Picture sepiaBeach = new Picture(beach);
    Picture gull = new Picture("seagull.jpg");
+   Picture chair = new Picture("lawnchair.jpg");
    negativeBeach.negate();
+   sepiaBeach.sepia();
    this.copy(beach,0,0);
    this.copy(negativeBeach,0,640);
    this.copy(beach,480,0);
    this.cropAndCopy(gull, 232, 323, 235, 345, 750, 500);
-   
+   this.copy(sepiaBeach, 480, 640);
+   this.write("C:\\Users\\gschmit\\Desktop\\GitHub\\unit6MediaComp\\images\\MyCollage.jpg");
   }
   
   /** Method to show large changes in color 
